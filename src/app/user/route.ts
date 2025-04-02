@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import chrome from 'html-pdf-chrome';
+import * as  chrome from 'html-pdf-chrome';
 import fs from 'fs';
 import path from 'path';
 
-export async function POST(request: NextRequest,response:NextResponse) {
+export async function POST(request: NextRequest) {
     
   const data:any = await request.json();
   console.log("data", data);
