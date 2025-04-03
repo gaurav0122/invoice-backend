@@ -8,9 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
+    "chrome-aws-lambda": "^10.1.0",
     "express": "^5.1.0",
-    "html-pdf-chrome": "^0.8.4",
-    "next": "15.2.4"
+    "next": "15.2.4",
+    "puppeteer-core": "^24.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",

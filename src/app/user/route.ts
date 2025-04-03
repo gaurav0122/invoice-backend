@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import * as  chrome from 'html-pdf-chrome';
 import fs from 'fs';
 import path from 'path';
 
-export async function POST(request: NextRequest) {
+
+export async function POST(request: NextRequest,response:NextResponse) {
     
   const data:any = await request.json();
   console.log("data", data);
@@ -174,17 +174,11 @@ export async function POST(request: NextRequest) {
 
 </body>
 </html>`;
+
   console.log(markupText);
-   
-  
-  const pdfBuffer = await chrome.create(markupText);
-const headers = {
-    'Content-Type': 'application/pdf',
-    'Content-Disposition': 'attachment; filename=invoice.pdf',
-  };
 // Set headers to indicate it's a PDF download
-return new NextResponse(pdfBuffer.toBuffer(), { headers });
-//   return NextResponse.json({ message: "data received", htmlData:markupText  });
+//return new NextResponse(pdfBuffer.toBuffer(), { headers });
+  return NextResponse.json({ message: "data received", htmlData:markupText  });
 }
 
 
