@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 
-export async function POST(request: NextRequest,response:NextResponse) {
+export async function POST(request: NextRequest) {
     
   const data:any = await request.json();
   console.log("data", data);
@@ -148,11 +148,11 @@ export async function POST(request: NextRequest,response:NextResponse) {
             <table>
                 <thead>
                     <tr>
-                        <th>S. No</th>
-                        <th>PARTICULARS</th>
-                        <th>Qty</th>
-                        <th>Rate</th>
-                        <th>Amount Rs.</th>
+                        <th style="width: 8%;">S. No</th>
+                        <th style="width: 60%;">PARTICULARS</th>
+                        <th style="width: 8%;">Qty</th>
+                        <th style="width: 12%;">Rate</th>
+                        <th style="width: 12%;">Amount Rs.</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -178,7 +178,7 @@ export async function POST(request: NextRequest,response:NextResponse) {
   console.log(markupText);
 // Set headers to indicate it's a PDF download
 //return new NextResponse(pdfBuffer.toBuffer(), { headers });
-  return NextResponse.json({ message: "data received", htmlData:markupText  });
+  return NextResponse.json({ message: "data received", htmlData:markupText  }, { status: 200 });
 }
 
 
